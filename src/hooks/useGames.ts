@@ -27,7 +27,9 @@ interface FetchGames {
     results: Game[];
 }
 
-const useGames = function ( selectedGenre: Genres | null, selectedPlatform: Platform | null, selectedOrder: string | null) {
+const useGames = function ( 
+    selectedGenre: Genres | null, selectedPlatform: Platform | null, selectedOrder: string | null, searchTerm: string // Add searchTerm as a parameter
+) {
 
     const [games, setGames] = useState<Game[]>([])
     const [error, setError] = useState("")
@@ -38,10 +40,12 @@ const useGames = function ( selectedGenre: Genres | null, selectedPlatform: Plat
         const controller = new AbortController();
         const config = {
             signal: controller.signal,
-            params: { ...(selectedGenre ? { genres: selectedGenre.id } : {}),
-                    ...(selectedPlatform ? { platforms: selectedPlatform.id } : {}),
-                    ...(selectedOrder ? { ordering: selectedOrder } : {})
-                }
+            params: {
+                ...(selectedGenre ? { genres: selectedGenre.id } : {}),
+                ...(selectedPlatform ? { platforms: selectedPlatform.id } : {}),
+                ...(selectedOrder ? { ordering: selectedOrder } : {}),
+                ...(searchTerm ? { search: searchTerm } : {}) // Add search term to API params
+            },
         };
 
         apiClient.get<FetchGames>("/games", config)
@@ -57,7 +61,7 @@ const useGames = function ( selectedGenre: Genres | null, selectedPlatform: Plat
                 })
         
         return () => controller.abort()
-    }, [selectedGenre, selectedPlatform, selectedOrder])
+    }, [selectedGenre, selectedPlatform, selectedOrder, searchTerm])
 
     return {games, error, isLoading}
 

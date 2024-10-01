@@ -3,7 +3,12 @@ import SiteLogo from "../assets/logo.webp"
 import ColorModeSwitch from "./ColorModeSwitch"
 import SearchBox from './SearchBox'
 
-function NavBar () {
+interface Props {
+    onSearch: (searchTerm: string) => void; // Prop to handle search input. Remove
+}
+
+
+function NavBar ({onSearch}: Props) {
 
     return (
         <HStack
@@ -13,7 +18,7 @@ function NavBar () {
          spacing="0"
          justifyContent="space-around">
                 <Image src={SiteLogo} boxSize="50px"></Image>
-                <SearchBox />
+                <SearchBox onSearch={onSearch} /> {/* Pass the onSearch prop. Not original. Remove */}
                 <ColorModeSwitch />
         </HStack>
         )

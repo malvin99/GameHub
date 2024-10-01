@@ -12,11 +12,12 @@ import GameGrid from '../components/GameGrid'
 
 function HomePage () {
 
-    const {isLoading} = useGames(null, null, null)
+  const {isLoading} = useGames(null, null, null)
 
   const [selectedGenre, setSelectedGenre] = useState<Genres | null >(null)
   const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(null)
   const [selectedOrder, setSelectedOrder] = useState<string | null>(null)
+  
 
 
   return (
