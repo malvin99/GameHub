@@ -1,4 +1,4 @@
-import { Box, Grid, GridItem, Heading } from "@chakra-ui/react"
+import { Box, Grid, GridItem, Heading, } from "@chakra-ui/react"
 import useGame from "../hooks/useGame"
 import ExpandableText from "../components/ExpandableText"
 import GameMetaData from "../components/GameMetaData"
@@ -24,9 +24,15 @@ function GameDetailPage () {
             </Box>
           </GridItem>
 
-          <GridItem>
+          <GridItem paddingTop = {9}>
+                <Box paddingBottom={5}>
                   <GameTrailer/>
+                </Box>
+                
+                <Box>
                   <ScreenShots/>
+                </Box>
+                  
           </GridItem>
         </Grid>
               

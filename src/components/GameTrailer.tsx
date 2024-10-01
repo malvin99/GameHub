@@ -14,7 +14,7 @@ function GameTrailer() {
     
                 {/* Check if a video URL exists before rendering the video element */}
                 {videoUrl ? (
-                    <video controls width="600" autoPlay>
+                    <video controls width="1080" autoPlay>
                         <source src={videoUrl} type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
