@@ -1,11 +1,15 @@
-import { Image } from "@chakra-ui/react";
+import { Box, Image, Text } from "@chakra-ui/react";
 import useGameTrailers from "../hooks/useGameTrailers";
 import videoPlaceHolder from  "../assets/no-video-placeholder.webp"
+
+
 
 function GameTrailer() {
     const { gameTrailer } = useGameTrailers();
     
+    //@ts-ignore
     const videoUrl = gameTrailer?.results && gameTrailer.results.length > 0 
+    //@ts-ignore
     ? gameTrailer.results[0].data[480] 
     : null;
 
@@ -20,7 +24,23 @@ function GameTrailer() {
                     </video>
                 ) : (
                     <>
-                    <Image src = {videoPlaceHolder}/>
+                        <Box position="relative" display="inline-block">
+                            <Image src = {videoPlaceHolder}/>
+                            <Text
+                                    position="absolute"
+                                    bottom="10px"
+                                    left="10px"
+                                    color="white"
+                                    fontSize="lg"
+                                    fontWeight="bold"
+                                    bg="rgba(0, 0, 0, 0.5)"
+                                    p="4px"
+                                    borderRadius="md"
+                            > 
+                                No Game Trailer
+                            </Text>
+                        </Box>
+                        
                     </>
                     
                 )}
