@@ -41,6 +41,7 @@ const useGames = function (
         const config = {
             signal: controller.signal,
             params: {
+                page_size:40,
                 ...(selectedGenre ? { genres: selectedGenre.id } : {}),
                 ...(selectedPlatform ? { platforms: selectedPlatform.id } : {}),
                 ...(selectedOrder ? { ordering: selectedOrder } : {}),
