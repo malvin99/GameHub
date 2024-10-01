@@ -1,6 +1,6 @@
 import { Image } from "@chakra-ui/react";
 import useGameTrailers from "../hooks/useGameTrailers";
-import videoPlaceHolder from  "../assets/no-image-placeholder.webp"
+import videoPlaceHolder from  "../assets/no-video-placeholder.webp"
 
 function GameTrailer() {
     const { gameTrailer } = useGameTrailers();
