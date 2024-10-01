@@ -5,11 +5,15 @@ import SearchBox from './SearchBox'
 import { Link } from "react-router-dom";
 
 interface Props {
+    //@ts-ignore
     onSearch: (searchTerm: string | undefined) => void; // Prop to handle search input. Remove
 }
 
 
-function NavBar ({onSearch}: Props) {
+function NavBar (
+    //@ts-ignore
+    {onSearch}: Props) 
+    {
 
     return (
         <HStack

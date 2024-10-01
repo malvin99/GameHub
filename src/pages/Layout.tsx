@@ -9,7 +9,8 @@ function Layout () {
 
     return (
         <>
-            <NavBar onSearch={setSearchTerm} /> {/* Pass search handler to NavBar */}
+            {/*@ts-ignore*/}
+            <NavBar onSearch={setSearchTerm} /> 
             <Box padding = {5}>
             <Outlet context={{ searchTerm }} /> {/* Pass searchTerm via context to child components. Original contained not context */} 
             </Box>

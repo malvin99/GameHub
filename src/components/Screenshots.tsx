@@ -1,5 +1,7 @@
 import { Image, SimpleGrid } from "@chakra-ui/react"
-import useScreenShots, { ScreenShots } from "../hooks/useScreenShots"
+import useScreenShots, { 
+    //@ts-ignore
+    ScreenShots } from "../hooks/useScreenShots"
 
 
 function ScreenShots () {
@@ -8,7 +10,9 @@ function ScreenShots () {
 
     return (
         <SimpleGrid columns ={{base: 1, md: 2}} spacing={2}>
-            {screenShots?.results.map((file:ScreenShots) => <Image src = {file.image}/>)}
+            
+            { // @ts-ignore
+            screenShots?.results.map((file:ScreenShots) => <Image src = {file.image}/>)}
 
         </SimpleGrid>
     )

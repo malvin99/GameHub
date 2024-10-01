@@ -28,7 +28,7 @@ interface FetchGames {
 }
 
 const useGames = function ( 
-    selectedGenre: Genres | null, selectedPlatform: Platform | null, selectedOrder: string | null, searchTerm: string // Add searchTerm as a parameter
+    selectedGenre: Genres | null, selectedPlatform: Platform | null, selectedOrder: string | null, searchTerm: string | null // Add searchTerm as a parameter
 ) {
 
     const [games, setGames] = useState<Game[]>([])
