@@ -1,4 +1,4 @@
-import { Heading, Image } from "@chakra-ui/react";
+import { Image } from "@chakra-ui/react";
 import useGameTrailers from "../hooks/useGameTrailers";
 import videoPlaceHolder from  "../assets/no-image-placeholder.webp"
 
@@ -11,7 +11,6 @@ function GameTrailer() {
 
     return (
             <div>
-                <Heading as="h2" size="lg">Game Trailer</Heading>
     
                 {/* Check if a video URL exists before rendering the video element */}
                 {videoUrl ? (
@@ -21,7 +20,6 @@ function GameTrailer() {
                     </video>
                 ) : (
                     <>
-                    <Heading size="md">No trailer available</Heading>
                     <Image src = {videoPlaceHolder}/>
                     </>
                     
